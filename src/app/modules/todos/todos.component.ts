@@ -76,7 +76,6 @@ export class TodosComponent implements OnInit {
   }
 
 
-
   //for a get length of todolist elements
   getlengthoftodolist() {
     this.listuiservice.getAllTodolists().subscribe(res => {
@@ -112,18 +111,6 @@ export class TodosComponent implements OnInit {
         this.ngOnInit()
         this.todolistform.reset()
       }
-
-
-    }, 1000);
-
-
-
-
-
-
+    }, 1000)
   }
-
-
-
-
 }
