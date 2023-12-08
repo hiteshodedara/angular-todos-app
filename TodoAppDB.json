@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Odedara Hitesh"
+    },
+    {
+      "id": 2,
+      "name": "Kukadiya Dipen"
+    },
+    {
+      "id": 3,
+      "name": "Karva Tarnum"
+    },
+    {
+      "id": 4,
+      "name": "Timba Sager"
+    },
+    {
+      "id": 5,
+      "name": "Odedara Vipul"
+    }
+  ],
+  "todoslists": [
+    {
+      "id": 1,
+      "key": "todo",
+      "name": "Todo",
+      "isarchive": false,
+      "index": 1
+    },
+    {
+      "id": 2,
+      "key": "prosess",
+      "name": "Prosess",
+      "isarchive": false,
+      "index": 2
+    },
+    {
+      "id": 3,
+      "key": "complete",
+      "name": "Complete",
+      "isarchive": false,
+      "index": 3
+    },
+    {
+      "key": "Bug447",
+      "name": "Bug",
+      "isarchive": false,
+      "index": 4,
+      "id": 4
+    }
+  ]
+}

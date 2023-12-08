@@ -1,0 +1,72 @@
+<div class="container-fluid  bg-primary-subtle   todosbody">
+
+    <div>
+        <div class="boardmenuwrapper">
+            <p-menubar class="">
+                <ng-template pTemplate="start" class="">
+                    <div class="boardtitle">
+                        <label>Todos Project</label>
+                    </div>
+
+                    <div class="Favorite">
+                        <i [class]="isfavorite?'pi pi-star':'pi pi-star-fill'" (click)="onclickfavorite()"></i>
+                    </div>
+
+                    <div class="WorkSpace">
+                        <label class="m-1 "><i class="pi pi-fw pi-user"></i> Workspace</label>
+                    </div>
+
+                </ng-template>
+                <ng-template pTemplate="end">
+                    <div class=" mx-2  align-self-center d-flex ">
+                        <label id="boardusers" class="boardmembers">HO</label>
+                    </div>
+                    <div class=" mx-2 p-2  align-self-center d-flex boardsetting">
+                        <i class="pi pi-ellipsis-h"></i>
+                    </div>
+
+                </ng-template>
+            </p-menubar>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row  bg-primary-subtle    rounded-3  ">
+
+            <!-- show in all lists -->
+            <div class="col my-2" *ngFor="let item of blocks ">
+                <app-todolists [curruntlist]="item "></app-todolists>
+            </div>
+
+            <div class="col my-2">
+                <div class="card   rounded d-flex flex-row justify-content-center  addlistbutton"
+                    (click)="showDialog()">
+                    <i class="pi pi-plus addlisttag"></i>
+                    <label class="m-2">Add New List</label>
+                </div>
+                <!-- dialog for add todoslist -->
+                <p-dialog header="Header" [(visible)]="addtodolistvisible" [style]="{ width: '30vw' }"
+                    [closable]="false">
+                    <ng-template pTemplate="header">
+                        <h2 class="text-xl font-bold">Add New List</h2>
+                    </ng-template>
+                    <div>
+                        <form [formGroup]="todolistform" (ngSubmit)="ontodolistsubmit()">
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Add List Name</label>
+                                <input type="email" autocomplete="off" class="form-control" id="exampleInputEmail1"
+                                    formControlName="todolistname" aria-describedby="emailHelp">
+                            </div>
+                            <div class="sbutton d-flex justify-content-end">
+                                <button type="button" class="mx-2  btn btn-danger"
+                                    (click)="onClickClose()">Close</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </p-dialog>
+            </div>
+        </div>
+    </div>
+</div>

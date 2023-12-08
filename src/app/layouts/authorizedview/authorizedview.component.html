@@ -1,0 +1,19 @@
+<div class="container-fluid">
+    <div class="row ">
+        <div class="col menubar">
+            <app-top-menubar></app-top-menubar>
+        </div>
+    </div>
+    <div class="row  mainbody">
+        <div class="col sidebar" *ngIf="isSidebar">
+            <app-side-menubar></app-side-menubar>
+        </div>
+        <div class="col closebutton ">
+            <i [class]="isSidebar" [class]="isSidebar ? 'pi pi-arrow-left':'pi pi-arrow-right' "
+                [pTooltip]="isSidebar ? 'Close Sidebar':'Open Side'" (click)="onsidebartoggle()"></i>
+        </div>
+        <div class="col">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

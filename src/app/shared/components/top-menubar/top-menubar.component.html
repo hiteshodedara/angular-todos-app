@@ -1,0 +1,17 @@
+<div class="topmenuwrapper">
+    <p-menubar [model]="main_manu_item" class="">
+        <ng-template pTemplate="start" class="align-self-auto ">
+            <img src="https://primefaces.org/cdn/primeng/images/primeng.svg" height="30" class="" />
+        </ng-template>
+        <ng-template pTemplate="end">
+            <input type="text" class="form-control" id="searchitems" pInputText placeholder="Search" />
+            <div class="usermenuwrapper d-flex align-items-center ">
+                <p-tieredMenu #menu [model]="user_menu" [popup]="true"></p-tieredMenu>
+                <div class="CurruntUser mx-2  align-self-center d-flex " (click)="menu.toggle($event)">
+                    <label id="cuser">HO</label>
+                </div>
+            </div>
+        </ng-template>
+
+    </p-menubar>
+</div>

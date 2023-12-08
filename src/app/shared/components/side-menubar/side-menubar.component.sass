@@ -1,0 +1,85 @@
+$HoverColor: #3a277db6
+
+:host
+  .sidebar
+    background-color: #fff
+
+    .menu
+      list-style: none
+      display: flex
+      flex-direction: column
+      padding: 0
+    .menuitem
+      padding: 10px
+      &:hover
+        background-color: $HoverColor
+
+    .textlable
+      font-size: 19px
+      font-weight: 700
+      margin-left: 10px
+
+    .boardaddtitle
+      display: flex
+      align-items: center
+
+    .addboardclass
+      margin-right: 10px
+      padding: 5px
+      &:hover
+        background-color: $HoverColor
+
+    .addbutton
+      &:hover
+        cursor: pointer
+
+    .downmenu
+      list-style: none
+      padding: 0
+      margin-bottom: 0
+
+    .downmenuitem
+
+      padding: 10px
+      &:hover
+        background-color: $HoverColor
+
+    .downitem
+      margin-left: 10px
+
+// setting of archive menu
+#menu
+  ul
+    padding-left: 0
+
+  li
+    list-style: none
+    font-size: 16px
+    padding: 10px 10px
+    cursor: pointer
+
+    &:hover
+      background-color: $HoverColor
+
+    &.active
+      background-color: #5933e2b6
+
+  ul li
+    ul
+      display: none
+
+    &.submenu
+      position: relative
+
+      ul
+        position: absolute
+        border: 1px solid #000
+        left: 200px
+        width: 200px
+        top: 45px
+        background: #333
+
+      &:hover ul
+        z-index: 200
+        background-color: #fff
+        display: inline-block

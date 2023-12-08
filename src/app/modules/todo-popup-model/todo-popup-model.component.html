@@ -1,0 +1,57 @@
+<!-- Your dynamic dialog content goes here -->
+<div class="my-1 ">
+  <form>
+
+    <div class="mb-3">
+      <label for="Titleinput" class="form-label fw-bold">Title</label>
+      <input required type="text" class="form-control" name="card-title" [(ngModel)]="titlevalue" id="Titleinput"
+        autocomplete="off">
+    </div>
+
+    <div class="mb-3">
+      <label for="Discriptioninput" class="form-label fw-bold">Discription</label>
+      <input type="text" class="form-control" name="card-discription" [(ngModel)]="descvalue" id="Discriptioninput"
+        autocomplete="off">
+    </div>
+
+
+
+
+    <!-- update todo list name -->
+    <div class="mb-3 d-flex flex-column " *ngIf="isAddMode==false">
+      <label for="selecttodo" class="form-label fw-bold">List Name</label>
+      <p-dropdown id="selecttodo" [options]="lists" [(ngModel)]="selectedlistname" [showClear]="true" optionLabel="name"
+        appendTo="body" name="todolist">
+      </p-dropdown>
+    </div>
+
+    <!-- for users list options -->
+    <div class="mb-3 d-flex flex-column ">
+      <label for="selectuser" class="form-label fw-bold">Assigne User</label>
+      <p-dropdown id="selectuser" [options]="userlist" [(ngModel)]="selecteduser" optionLabel="name" [showClear]="true"
+        appendTo="body" name="users">
+
+        <ng-template let-user pTemplate="item">
+          <div class="d-flex  align-items-center gap-2">
+            <div class="">{{ user.name }}</div>
+          </div>
+        </ng-template>
+      </p-dropdown>
+    </div>
+
+    <!-- this element show whan isAddMode is true in add user -->
+    <div class="mb-3" *ngIf="isAddMode==true">
+      <label for="listdata" class="form-label fw-bold align-self-center ">Card Name</label>
+      <input type="text" class="form-control " [disabled]="isAddMode==true" name="listdata"
+        [value]="selectedlistname.name" id="listdata">
+    </div>
+
+    <div class="text-end">
+      <!-- Show the "Add" button when isAddMode is false -->
+      <button *ngIf="!isAddMode" class="btn btn-warning  " type="submit" (click)="Updatetodo()">Update Card</button>
+
+      <!-- Show the "Update" button when isAddMode is true -->
+      <button *ngIf="isAddMode" class="btn btn-warning  " type="submit" (click)="addcardinlist()">Add Card</button>
+    </div>
+  </form>
+</div>
