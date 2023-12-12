@@ -7,6 +7,8 @@ import { TodoPopupModelComponent } from '../todo-popup-model/todo-popup-model.co
 import { MenuItem } from 'primeng/api';
 import { TodolistuiService } from 'src/app/services/todolistui.service';
 import { Todoslist } from 'src/app/models/todoslist';
+import { Store } from '@ngrx/store';
+import { onArchiveTodolist } from 'src/app/Store/todolist/todolist.actions';
 
 @Component({
   selector: 'app-todolists',
@@ -28,7 +30,10 @@ export class TodolistsComponent implements OnInit {
 
 
 
-  constructor(private dbdata: LocalstorageService, public dialogService: DialogService, private uilistservice: TodolistuiService) {
+  constructor(private dbdata: LocalstorageService,
+    public dialogService: DialogService,
+    private uilistservice: TodolistuiService,
+    private store: Store) {
   }
 
 
@@ -94,16 +99,11 @@ export class TodolistsComponent implements OnInit {
     const currunttodolist = archivetodolist
 
     let id = currunttodolist.id;
-
-    currunttodolist.isarchive = true
-
-    this.uilistservice.updateTodolist(id, currunttodolist).subscribe(res => {
-      console.log("successfully set archive");
-
-    })
-
-    this.ngOnInit()
-
+    if (id) {
+      this.store.dispatch(onArchiveTodolist({ aid: id }))
+    } else {
+      console.error("don't have id on todolist")
+    }
   }
 
 }

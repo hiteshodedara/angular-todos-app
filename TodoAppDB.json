@@ -44,11 +44,18 @@
       "index": 3
     },
     {
-      "key": "Bug447",
-      "name": "Bug",
-      "isarchive": false,
+      "key": "ok939",
+      "name": "ok",
+      "isarchive": true,
       "index": 4,
       "id": 4
+    },
+    {
+      "key": "bug436",
+      "name": "bug",
+      "isarchive": true,
+      "index": 4,
+      "id": 5
     }
   ]
 }

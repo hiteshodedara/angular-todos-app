@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Store } from '@ngrx/store';
 import { map } from 'rxjs';
+import { AppState } from 'src/app/Store/app.state';
+import { LoadTodolists, addTodolist } from 'src/app/Store/todolist/todolist.actions';
+import { selectAllTodolist } from 'src/app/Store/todolist/todolist.selectors';
+import { TodolistState, TodolistinitialState } from 'src/app/Store/todolist/todolist.state';
 import { Todoslist } from 'src/app/models/todoslist';
 import { BoardsService } from 'src/app/services/boards.service';
 import { TodolistuiService } from 'src/app/services/todolistui.service';
@@ -14,17 +19,14 @@ import { TodolistuiService } from 'src/app/services/todolistui.service';
 export class TodosComponent implements OnInit {
 
   isfavorite: boolean = true;
-  blocks!: Todoslist[];//variable for set ui element in display
   addtodolistvisible: boolean = false;
-  todolistlength!: number
-
+  todolists$!: Todoslist[]
   todolistform = new FormGroup({
     todolistname: new FormControl(''),
   });
 
-
-
-  constructor(private listuiservice: TodolistuiService, private boardService: BoardsService) {
+  constructor(private listuiservice: TodolistuiService, private boardService: BoardsService,
+    private store: Store<AppState>) {
 
 
   }
@@ -32,8 +34,7 @@ export class TodosComponent implements OnInit {
 
 
   ngOnInit(): void {
-
-
+    this.store.dispatch(LoadTodolists())
     this.gettodoslistdata()
   }
 
@@ -42,18 +43,12 @@ export class TodosComponent implements OnInit {
 
 
   gettodoslistdata() {
+    this.store.select('todolist').subscribe(res => {
+      const val = res.todolist
+      const archivedItems = val.filter(item => item.isarchive != true);
 
+      this.todolists$=archivedItems
 
-
-    this.listuiservice.getAllTodolists().subscribe(res => {
-      let val = res
-
-      //filter for archive
-      let ans = val.filter((item) => {
-        return item.isarchive == false
-      })
-
-      this.blocks = ans
     })
 
   }
@@ -76,41 +71,31 @@ export class TodosComponent implements OnInit {
   }
 
 
-  //for a get length of todolist elements
-  getlengthoftodolist() {
-    this.listuiservice.getAllTodolists().subscribe(res => {
-      this.todolistlength = res.length
-    })
-  }
+
 
 
   //this function is used to add new todoslist in database
   ontodolistsubmit() {
     let val = this.todolistform.value.todolistname
 
-    this.getlengthoftodolist()
 
-    setTimeout(() => {
-      if (val) {
-        let forkey = (val + (Math.round(Math.random() * 1000)))
-        let obj: Todoslist = {
-          key: forkey,
-          name: val,
-          isarchive: false,
-          index: this.todolistlength + 1
-        }
-        this.addtodolistvisible = !this.addtodolistvisible;
-
-        //add in todoslist data
-        this.listuiservice.addTodolist(obj).subscribe(res => {
-          console.log("Success");
-        }, error => {
-          console.log("error");
-        })
-
-        this.ngOnInit()
-        this.todolistform.reset()
+    if (val) {
+      let forkey = (val + (Math.round(Math.random() * 1000)))
+      let obj: Todoslist = {
+        key: forkey,
+        name: val,
+        isarchive: false,
+        index: this.todolists$.length + 1
       }
-    }, 1000)
+      this.addtodolistvisible = !this.addtodolistvisible;
+
+      //add in todoslist data
+      console.log(obj);
+
+      this.store.dispatch(addTodolist({ newtodolist: obj }))
+
+
+      this.todolistform.reset()
+    }
   }
 }
