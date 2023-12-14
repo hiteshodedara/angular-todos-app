@@ -56,6 +56,9 @@ export class TodosComponent implements OnInit {
   //this function for set favorite list (not completed)
   onclickfavorite() {
     this.isfavorite = !this.isfavorite
+
+
+
   }
 
 

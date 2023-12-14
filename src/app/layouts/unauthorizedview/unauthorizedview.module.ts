@@ -4,6 +4,7 @@ import { UnauthorizedviewComponent } from './unauthorizedview.component';
 import { LoginpageComponent } from '../../modules/loginpage/loginpage.component';
 import { RegisterpageComponent } from '../../modules/registerpage/registerpage.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
 import {
@@ -19,7 +20,9 @@ import {
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers:[{
     provide: 'SocialAuthServiceConfig',

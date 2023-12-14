@@ -1,24 +1,51 @@
-<div class="container-fluid d-flex justify-content-center align-items-center bg-primary-subtle mainbody"
-    style="min-height: 100vh;">
-    <div class="card p-5 w-50 overflow-hidden ">
-        <div class="card-title  d-flex justify-content-center ">
+<div class="container-fluid d-flex justify-content-center align-items-center mainbody"
+    style="min-height: 100vh; background-image: url('../../../assets/images/stacked-peaks-haikei.png'); background-size: cover;">
+
+    <div class="card p-5 w-50 overflow-hidden" style="background-color: rgba(255, 255, 255, 0.8);">
+        <div class="card-title d-flex justify-content-center">
             <label class="loginpagetitle">Login Page</label>
         </div>
-        <form>
+        <form [formGroup]="userLoginForm" (ngSubmit)="onClickLogin()">
 
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    autocomplete=off>
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" autocomplete=off>
+                <label for="exampleInputusername" class="form-label fw-bolder">User Name*</label>
+                <input type="text" class="form-control" id="exampleInputusername" placeholder="Enter your Username"
+                    autocomplete="off" formControlName="userName">
+                <!-- Display validation error message -->
+                <div *ngIf="userLoginForm.get('userName')?.hasError('required') && userLoginForm.get('userName')?.touched"
+                    class="text-danger">
+                    Username is required.
+                </div>
+                <div *ngIf="userLoginForm.get('userName')?.hasError('minlength') && userLoginForm.get('userName')?.touched"
+                    class="text-danger">
+                    Minimum length is 6 characters.
+                </div>
             </div>
 
-            <div class="button   d-flex justify-content-end ">
-                <a type="submit" class="btn btn-primary btn-lg mx-2 " href="/u/register">Go Register</a>
-                <button type="submit" class="btn btn-primary btn-lg ">Login</button>
+            <div class="mb-3">
+                <label for="exampleInputPassword" class="form-label fw-bolder">Password</label>
+                <div class="input-group">
+                    <input [type]="showPassword ?'text':'password'" class="form-control" id="exampleInputPassword"
+                        placeholder="Enter password" formControlName="password">
+                    <span class="input-group-text" (click)="onPasswordShow()">
+                        <i class="fa" [ngClass]="{ 'fa-eye': showPassword, 'fa-eye-slash': !showPassword }"></i>
+                    </span>
+                </div>
+                <!-- Display validation error message -->
+                <div *ngIf="userLoginForm.get('password')?.hasError('required') && userLoginForm.get('password')?.touched"
+                    class="text-danger">
+                    Password is required.
+                </div>
+                <div *ngIf="userLoginForm.get('password')?.hasError('minlength') && userLoginForm.get('password')?.touched"
+                    class="text-danger">
+                    Minimum length is 10 characters.
+                </div>
+
+            </div>
+
+            <div class="button d-flex justify-content-end">
+                <a class="btn btn-outline-success btn-lg mx-2" routerLink="/u/register">Go Register</a>
+                <button type="submit" class="btn btn-outline-success btn-lg">Login</button>
             </div>
         </form>
     </div>

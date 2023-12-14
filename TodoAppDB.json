@@ -40,7 +40,7 @@
       "id": 3,
       "key": "complete",
       "name": "Complete",
-      "isarchive": false,
+      "isarchive": true,
       "index": 3
     },
     {
@@ -56,6 +56,13 @@
       "isarchive": true,
       "index": 4,
       "id": 5
+    },
+    {
+      "key": "new508",
+      "name": "new",
+      "isarchive": false,
+      "index": 3,
+      "id": 6
     }
   ]
 }
