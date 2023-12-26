@@ -8,6 +8,7 @@ export const addTodolist = createAction('[Todolist] Add Todolist', props<{ newto
 
 
 export const onArchiveTodolist = createAction('[Todolist] Archive Todolist', props<{ aid: number }>())
+export const undoArchiveTodolist = createAction('[Todolist] Undo Archive Todolist', props<{ aid: number }>())
 
 
 

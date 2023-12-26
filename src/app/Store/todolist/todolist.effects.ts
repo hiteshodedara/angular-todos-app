@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { TodolistuiService } from "src/app/services/todolistui.service";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { LoadTodolists, LoadTodolistsFailure, LoadTodolistsSuccess, addTodolist, onArchiveTodolist } from "./todolist.actions";
+import { LoadTodolists, LoadTodolistsFailure, LoadTodolistsSuccess, addTodolist, onArchiveTodolist, undoArchiveTodolist } from "./todolist.actions";
 import { catchError, from, map, of, switchMap } from "rxjs";
 
 @Injectable()
@@ -38,7 +38,17 @@ export class TodolistEffect {
     () =>
       this.actions$.pipe(
         ofType(onArchiveTodolist),
-        switchMap((action) => from(this.todolistservice.updateTodolist(action.aid)))
+        switchMap((action) => from(this.todolistservice.settodolistArchive(action.aid)))
+      ),
+    // Most effects dispatch another action, but this one is just a "fire and forget" effect
+    { dispatch: false }
+  );
+
+  undoArchiveTodolist$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(undoArchiveTodolist),
+        switchMap((action) => from(this.todolistservice.undotodolistArchive(action.aid)))
       ),
     // Most effects dispatch another action, but this one is just a "fire and forget" effect
     { dispatch: false }

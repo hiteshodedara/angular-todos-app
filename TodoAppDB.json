@@ -40,28 +40,28 @@
       "id": 3,
       "key": "complete",
       "name": "Complete",
-      "isarchive": true,
+      "isarchive": false,
       "index": 3
     },
     {
-      "key": "ok939",
-      "name": "ok",
-      "isarchive": true,
-      "index": 4,
+      "key": "bug143",
+      "name": "bug",
+      "isarchive": false,
+      "index": 3,
       "id": 4
     },
     {
-      "key": "bug436",
-      "name": "bug",
-      "isarchive": true,
-      "index": 4,
+      "key": "asd515",
+      "name": "asd",
+      "isarchive": false,
+      "index": 5,
       "id": 5
     },
     {
-      "key": "new508",
-      "name": "new",
+      "key": "sdf848",
+      "name": "sdf",
       "isarchive": false,
-      "index": 3,
+      "index": 6,
       "id": 6
     }
   ]

@@ -45,10 +45,8 @@ export class TodosComponent implements OnInit {
   gettodoslistdata() {
     this.store.select('todolist').subscribe(res => {
       const val = res.todolist
-      const archivedItems = val.filter(item => item.isarchive != true);
-
-      this.todolists$=archivedItems
-
+      const notarchivedItems = val.filter(item => item.isarchive != true);
+      this.todolists$=notarchivedItems
     })
 
   }

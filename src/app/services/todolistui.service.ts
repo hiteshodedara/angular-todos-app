@@ -39,7 +39,7 @@ export class TodolistuiService {
   }
 
   //this function is us for update todolist
-  updateTodolist(id: any) {
+  settodolistArchive(id: any) {
     
     const obj={
       isarchive:true
@@ -47,4 +47,10 @@ export class TodolistuiService {
     return this.http.patch(`${this.configUrl}/${id}`,obj)
   }
 
+  undotodolistArchive(id:any){
+    const obj={
+      isarchive:false
+    }
+    return this.http.patch(`${this.configUrl}/${id}`,obj)
+  }
 }

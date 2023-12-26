@@ -9,7 +9,7 @@ import { MenuModule } from 'primeng/menu';
 import { InputTextModule } from 'primeng/inputtext';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { DialogModule } from 'primeng/dialog';
 @NgModule({
   declarations: [
     TopMenubarComponent,
@@ -23,7 +23,8 @@ import { BrowserModule } from '@angular/platform-browser';
     MenubarModule,
     TieredMenuModule,
     MenuModule,
-    InputTextModule
+    InputTextModule,
+    DialogModule
   ],
   exports: [
     TopMenubarComponent,

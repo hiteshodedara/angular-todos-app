@@ -14,7 +14,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { todolistReducer } from './Store/todolist/todolist.reducers';
 import { TodolistEffect } from './Store/todolist/todolist.effects';
 
-
 @NgModule({
   declarations: [
     AppComponent,

@@ -1,4 +1,4 @@
-<div class="sidebar " style="background-color: #e0dbf0;height: 94.6vh;">
+<div class="sidebar " >
     <!-- sidebar top menu for Workspace -->
     <ul class="menu">
         <div class="menuitem" routerLink="boardshome">
@@ -42,15 +42,13 @@
     <div class="boardaddtitle justify-content-between ">
         <label class="textlable"> Your Settings</label>
     </div>
-    <div id="menu">
-        <ul>
-            <li class="submenu">Archived
-                <ul>
-                    <li>Archive Lists</li>
-                    <li>Archive Card</li>
-                </ul>
-            </li>
-
-        </ul>
-    </div>
+    <p-menu [model]="sidebar_menu_item"></p-menu>
+    <p-dialog header="Archived TodoLists" [(visible)]="archive_list_visible" [style]="{width: '30vw'}">
+        <div class="card p-2 d-flex flex-row justify-content-between my-2 bg-success-subtle " *ngFor="let item of todolists$">
+           <div class="todolistitem">{{item.name}}</div>
+           <div class="revertArchive" (click)="undo_Archive(item)">
+                <i class="pi pi-undo"></i>
+           </div>
+        </div>
+    </p-dialog>
 </div>
