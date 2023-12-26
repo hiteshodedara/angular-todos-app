@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LoginuserService } from 'src/app/services/loginuser.service';
 
 @Component({
   selector: 'app-loginpage',
@@ -10,10 +11,11 @@ export class LoginpageComponent implements OnInit {
   userLoginForm!: FormGroup;
   showPassword: boolean = false;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private loginuserservice: LoginuserService) { }
 
   ngOnInit(): void {
     this.initializeForm();
+    
   }
 
   initializeForm() {
@@ -29,19 +31,25 @@ export class LoginpageComponent implements OnInit {
 
   onClickLogin() {
     if (this.userLoginForm.valid) {
+      
       console.log(this.userLoginForm.value);
-      this.userLoginForm.reset();
+      
+      // this.userLoginForm.reset();
     } else {
       // Handle form validation errors
-      this.userLoginForm.markAllAsTouched(); 
-      
-      if(this.userLoginForm.value.userName){
+      this.userLoginForm.markAllAsTouched();
+
+      if (this.userLoginForm.value.userName) {
         console.error("Enter the Password");
-      }else if(this.userLoginForm.value.password){
+      } else if (this.userLoginForm.value.password) {
         console.error("Enter the Username");
-      }else{
+      } else {
         console.error('Form is invalid. Please check the fields.');
       }
     }
+  }
+
+  onchecklogin(){
+    this.loginuserservice.isUserLogin()
   }
 }

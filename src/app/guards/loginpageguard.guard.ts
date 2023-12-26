@@ -7,6 +7,7 @@ import { LoginuserService } from '../services/loginuser.service';
 })
 export class LoginPageGuard implements CanActivate {
 
+  
   constructor(private router: Router, private loginuser: LoginuserService) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {

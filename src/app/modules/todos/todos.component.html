@@ -30,11 +30,11 @@
         </div>
     </div>
 
-    <div class="container-fluid " style="height:100vh;background-image: url('../../../assets/images/1.png');background-size: cover;background-position: center; " >
-        <div class="row     rounded-3  ">
+    <div class=" " style="height:88.8vh;background-image: url('../../../assets/images/1.png');background-size: cover;background-position: center;width: 100%; " >
+        <div class="row rounded-3 w-100   ">
 
             <!-- show in all lists -->
-            <div class="col my-2" *ngFor="let item of todolists$">
+            <div class="col my-2 " *ngFor="let item of todolists$" style="margin-left: 10px;">
                 <app-todolists [curruntlist]="item "></app-todolists>
             </div>
 
@@ -48,7 +48,7 @@
                 <p-dialog header="Header" [(visible)]="addtodolistvisible" [style]="{ width: '30vw' }"
                     [closable]="false">
                     <ng-template pTemplate="header">
-                        <h2 class="text-xl font-bold">Add New List</h2>
+                        <h2 class=" font-bold">Add New List</h2>
                     </ng-template>
                     <div>
                         <form [formGroup]="todolistform" (ngSubmit)="ontodolistsubmit()">
