@@ -27,6 +27,9 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider
 } from '@abacritt/angularx-social-login';
+import { BoardShowComponent } from '../../modules/board-show/board-show.component';
+import { BoardListComponent } from '../../modules/board-list/board-list.component';
+import { BoardItemsComponent } from '../../modules/board-items/board-items.component';
 
 
 @NgModule({
@@ -39,6 +42,9 @@ import {
     TodoPopupModelComponent,
     BoardshomeComponent,
     BoardsmembersComponent,
+    BoardShowComponent,
+    BoardListComponent,
+    BoardItemsComponent,
   ],
   imports: [
     BrowserModule,

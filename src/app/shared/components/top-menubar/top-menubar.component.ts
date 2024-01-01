@@ -14,6 +14,7 @@ export class TopMenubarComponent implements OnInit {
         this.main_manu_item = [
             {
                 label: 'WorkSpaces',
+            
                 icon: 'pi pi-fw pi-file',
                 items: [
                     {

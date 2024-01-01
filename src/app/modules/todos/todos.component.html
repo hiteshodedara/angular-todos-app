@@ -1,6 +1,5 @@
 <div class="container-fluid   todosbody" >
 
-    <div>
         <div class="boardmenuwrapper">
             <p-menubar class="">
                 <ng-template pTemplate="start" class="">
@@ -28,12 +27,10 @@
                 </ng-template>
             </p-menubar>
         </div>
-    </div>
 
     <div class=" " style="height:88.8vh;background-image: url('../../../assets/images/1.png');background-size: cover;background-position: center;width: 100%; " >
         <div class="row rounded-3  ">
 
-            <!-- show in all lists -->
             <div class="col my-2 " *ngFor="let item of todolists$" style="margin-left: 10px;">
                 <app-todolists [curruntlist]="item "></app-todolists>
             </div>
@@ -44,7 +41,6 @@
                     <i class="pi pi-plus addlisttag"></i>
                     <label class="m-2">Add New List</label>
                 </div>
-                <!-- dialog for add todoslist -->
                 <p-dialog header="Header" [(visible)]="addtodolistvisible" [style]="{ width: '30vw' }"
                     [closable]="false">
                     <ng-template pTemplate="header">

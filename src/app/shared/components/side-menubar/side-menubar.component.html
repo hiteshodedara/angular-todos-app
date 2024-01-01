@@ -1,54 +1,33 @@
-<div class="sidebar " >
+<div class="sidebar " *ngIf="is_sidebar_show">
     <!-- sidebar top menu for Workspace -->
-    <ul class="menu">
-        <div class="menuitem" routerLink="boardshome">
-            <li class="item">
-                <i class="pi pi-th-large"></i>
-                Boards
-            </li>
-        </div>
-        <div class="menuitem" routerLink="boardsmembers">
-            <li class="item">
-                <i class="pi pi-users"></i>
-                Members
-            </li>
-        </div>
-        <!-- <div class="menuitem">
-                <li class="item">
-                <i class="pi pi-cog"></i>
-                Workspace Setting
-            </li>
-        </div> -->
-    </ul>
 
-
-    <div class="boardaddtitle justify-content-between ">
-        <label class="textlable"> Your Boards</label>
-        <div class="addboardclass">
-            <i class="pi pi-plus addbutton"></i>
-        </div>
-    </div>
-
-    <div class="down">
-        <ul class="downmenu">
-            <div class="downmenuitem " routerLink="todos">
-                <li class="downitem">
-                    hitesh
-                </li>
-            </div>
-        </ul>
-    </div>
-
-    <div class="boardaddtitle justify-content-between ">
-        <label class="textlable"> Your Settings</label>
-    </div>
     <p-menu [model]="sidebar_menu_item"></p-menu>
-    <p-dialog header="Archived TodoLists" [(visible)]="archive_list_visible" [style]="{width: '30vw'}">
-        <div class="card p-2 d-flex flex-row justify-content-between my-2 bg-success-subtle " *ngFor="let item of todolists$">
-           <div class="todolistitem">{{item.name}}</div>
-           <div class="revertArchive" (click)="undo_Archive(item)">
+
+    <!-- add board button -->
+    <div class="addBoardbtn">
+        <button class="btn btn-primary " (click)="on_addBoard_click()"><i class="pi pi-plus"></i></button>
+    </div>
+
+
+    <!-- Archive undo list Button -->
+    <p-dialog header="Archived TodoLists" [(visible)]="archive_list_visible" [style]="{width: '30vw',height:'30vw'}">
+        <div class="card p-2 d-flex flex-row justify-content-between my-2 bg-success-subtle "
+            *ngFor="let item of todolists$">
+            <div class="todolistitem">{{item.name}}</div>
+            <button class="revertArchive bg-transparent border-0 " (click)="undo_Archive(item)">
                 <i class="pi pi-undo"></i>
-           </div>
+            </button>
         </div>
+
     </p-dialog>
-</div>
+
+
+    <!-- Add Board Button Dialog box -->
+    <p-dialog header="Add Board In Workspace" [(visible)]="on_add_board" [style]="{width: '30vw'}">
+        <h1>Feacture comming soon</h1>
+    </p-dialog>
+
+    <div class="sidebarclosebtn sticky-bottom top-100 ">
+        <button class="btn btn-primary " (click)="onsidebarclose()"><i class="pi pi-arrow-left"></i></button>
+    </div>
+</div>   

@@ -102,7 +102,6 @@ export class TodoPopupModelComponent {
       }
 
       this.dbdata.addTodo(obj)//sent data to service for store data in local storage
-      window.location.reload();//bug but use for update ui 
     } else {
       console.log("enter values");
 

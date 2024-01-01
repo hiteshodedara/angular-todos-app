@@ -9,6 +9,7 @@ import { BoardsmembersComponent } from './modules/boardsmembers/boardsmembers.co
 import { TodosComponent } from './modules/todos/todos.component';
 import { AccessGuard } from './guards/access.guard';
 import { LoginPageGuard } from './guards/loginpageguard.guard';
+import { BoardShowComponent } from './modules/board-show/board-show.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'u', pathMatch: 'full' },//for redirecto login
@@ -34,7 +35,8 @@ const routes: Routes = [
       { path: '', redirectTo: 'boardshome', pathMatch: 'full' },
       { path: 'boardshome', component: BoardshomeComponent },
       { path: 'boardsmembers', component: BoardsmembersComponent },
-      { path: 'todos', component: TodosComponent }
+      { path: 'board_show', component: BoardShowComponent },
+      { path: 'Todos', component: TodosComponent }
     ]
   }, {
     path: '**', redirectTo: 'u', pathMatch: 'full'

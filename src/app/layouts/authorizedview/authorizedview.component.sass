@@ -17,14 +17,38 @@
 // .mainbody
 //     height: 885px
 
-.closebutton
-    z-index: 100
-
-    i
-        background-color: #000
-        color: #fff
-        padding: 3px
-        border-top-right-radius: 50%
-        border-bottom-right-radius: 50%
+    
+.sidebaropenbtn
+    transition: all
+    animation: normal
+    // position: absolute
+    background: #0d6efd
+    height: 94.6vh
+    max-width: 15px
+    position: relative
+    &:hover
+        // cursor: pointer
+        background: #1D4ED8
+    button
+        position: absolute
+        top: 43vh
+        width: 10px
+        height: 25px
+        display: flex
+        align-items: center
+        justify-content: center
+        border-radius: 50%
         &:hover
             cursor: pointer
+            background: #1D4ED8
+        i
+            font-size:10px
+            color: #000
+
+
+.mainbody
+    flex-wrap: nowrap
+    // overflow: hidden
+
+.showdata
+    width: 87%

@@ -4,15 +4,14 @@
             <app-top-menubar></app-top-menubar>
         </div>
     </div>
-    <div class="row  mainbody">
+    <div class="row  mainbody ">
         <div class="col sidebar" *ngIf="isSidebar">
-            <app-side-menubar></app-side-menubar>
+            <app-side-menubar (clsoesidebar)="for_closeSideBar()"></app-side-menubar>
         </div>
-        <div class="col closebutton ">
-            <i [class]="isSidebar" [class]="isSidebar ? 'pi pi-arrow-left':'pi pi-arrow-right' "
-                [pTooltip]="isSidebar ? 'Close Sidebar':'Open Side'" (click)="onsidebartoggle()"></i>
-        </div>
-        <div class="col">
+        <span class="sidebaropenbtn   col" *ngIf="!isSidebar" (click)="for_closeSideBar()">
+            <button class="btn btn-primary " (click)="for_closeSideBar()"><i class="pi pi-arrow-right"></i></button>
+        </span>
+        <div class="col showdata">
             <router-outlet></router-outlet>
         </div>
     </div>

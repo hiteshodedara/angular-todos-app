@@ -9,7 +9,7 @@ export class AuthorizedviewComponent {
 
   isSidebar: boolean = true;
 
-  onsidebartoggle() {
+  for_closeSideBar() {
     this.isSidebar = !this.isSidebar
   }
 }
