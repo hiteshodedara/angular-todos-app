@@ -12,7 +12,7 @@
     <!-- Archive undo list Button -->
     <p-dialog header="Archived TodoLists" [(visible)]="archive_list_visible" [style]="{width: '30vw',height:'30vw'}">
         <div class="card p-2 d-flex flex-row justify-content-between my-2 bg-success-subtle "
-            *ngFor="let item of todolists$">
+            *ngFor="let item of todolists">
             <div class="todolistitem">{{item.name}}</div>
             <button class="revertArchive bg-transparent border-0 " (click)="undo_Archive(item)">
                 <i class="pi pi-undo"></i>

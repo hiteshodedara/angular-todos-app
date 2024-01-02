@@ -42,27 +42,64 @@
       "name": "Complete",
       "isarchive": false,
       "index": 3
+    }
+  ],
+  "boards": [
+    {
+      "id": "1",
+      "title": "Board 1",
+      "todolists": [
+        {
+          "id": 1,
+          "key": "todo",
+          "name": "Todo",
+          "isarchive": false,
+          "index": 1
+        },
+        {
+          "id": 2,
+          "key": "prosess",
+          "name": "Prosess",
+          "isarchive": false,
+          "index": 2
+        },
+        {
+          "id": 3,
+          "key": "complete",
+          "name": "Complete",
+          "isarchive": false,
+          "index": 3
+        }
+      ],
+      "isFavarate": false
     },
     {
-      "key": "bug143",
-      "name": "bug",
-      "isarchive": false,
-      "index": 3,
-      "id": 4
-    },
-    {
-      "key": "asd515",
-      "name": "asd",
-      "isarchive": false,
-      "index": 5,
-      "id": 5
-    },
-    {
-      "key": "sdf848",
-      "name": "sdf",
-      "isarchive": false,
-      "index": 6,
-      "id": 6
+      "id": "2",
+      "title": "Board 2",
+      "todolists": [
+        {
+          "id": 1,
+          "key": "stwork",
+          "name": "startwork",
+          "isarchive": false,
+          "index": 1
+        },
+        {
+          "id": 2,
+          "key": "ontheway",
+          "name": "OnTheWay",
+          "isarchive": false,
+          "index": 2
+        },
+        {
+          "id": 3,
+          "key": "done",
+          "name": "Done",
+          "isarchive": false,
+          "index": 3
+        }
+      ],
+      "isFavarate": true
     }
   ]
 }
