@@ -1,4 +1,4 @@
-<div class="mainclassofboards"
+<div class="mainclassofboards placeholder-wave "
     style="height:94.6vh;background-image: url('../../../assets/images/1.png');background-size: cover;background-position: center; width: 100%;">
     <div class="boardmenuwrapper">
         <p-menubar class="">
@@ -22,12 +22,14 @@
                 </button>
 
                 <!-- board setting button -->
-                <button class=" mx-2 p-2  align-self-center d-flex boardsetting" (click)="board_menu.toggle($event)">
-                    <i class="pi pi-ellipsis-h"></i>
-                </button>
-
-                <!-- setting button menu-dialogbox -->
-                <p-tieredMenu #board_menu [model]="b_setting_menu_item" [popup]="true"></p-tieredMenu>
+                <div class="board_settingmenuwrapper">
+                    <button class=" mx-2 p-2  align-self-center d-flex boardsetting" (click)="board_menu.toggle($event)">
+                        <i class="pi pi-ellipsis-h"></i>
+                    </button>
+                    
+                    <!-- setting button menu-dialogbox -->
+                    <p-tieredMenu #board_menu [model]="b_setting_menu_item" [popup]="true"></p-tieredMenu>
+                </div>
 
             </ng-template>
         </p-menubar>

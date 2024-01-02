@@ -6,6 +6,8 @@
         <ng-template pTemplate="end">
             <input type="text" class="form-control mx-2" id="searchitems" pInputText placeholder="Search" />
             <div class="usermenuwrapper d-flex align-items-center ">
+
+                
                 <p-tieredMenu #menu [model]="user_menu" [popup]="true"></p-tieredMenu>
                 <button class="CurruntUser p-1  align-self-center d-flex " (click)="menu.toggle($event)">
                     <label id="cuser">HO</label>

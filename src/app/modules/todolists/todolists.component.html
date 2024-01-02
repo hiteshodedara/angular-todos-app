@@ -9,13 +9,13 @@
 
 
 
-    <div class="card-body placeholder-wave mt-2  mx-3  p-0  " *ngFor="let item of currunttodos">
+    <div class="card-body  mt-2  mx-3  p-0  " *ngFor="let item of currunttodos">
         <app-todoitems [curruntlist]="curruntlist" [items]="item" (tododelete)="deleletodo($event)">
         </app-todoitems>
     </div>
 
     <!-- code for add todo in currunnt list -->
-    <div class="card  placeholder-wave mt-2  mx-3 text-start  ">
+    <div class="card   mt-2  mx-3 text-start  ">
         <button class=" btn btn-outline-secondary  text-dark         text-center "
             (click)="Addtodo(curruntlist)"><i class="pi pi-plus"></i> Add Card</button>
     </div>
