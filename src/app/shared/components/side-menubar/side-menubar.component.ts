@@ -55,12 +55,14 @@ export class SideMenubarComponent {
           this.show_archive_list()
         },
         items: [
+        {
+          label: 'Board todolist',
+          icon: 'pi pi-refresh',
+          routerLink: 'board_show'
+        }
+        
          
-          {
-            label: 'Board todolist',
-            icon: 'pi pi-refresh',
-            routerLink: 'board_show'
-          }
+         
         ]
       },
       {
