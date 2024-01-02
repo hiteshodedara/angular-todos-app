@@ -4,7 +4,7 @@
 
     <div class="mb-3">
       <label for="Titleinput" class="form-label fw-bold">Title</label>
-      <input required type="text" class="form-control" name="card-title" [(ngModel)]="titlevalue" id="Titleinput"
+      <input required [autofocus]="true" type="text" class="form-control" name="card-title" [(ngModel)]="titlevalue" id="Titleinput"
         autocomplete="off">
     </div>
 

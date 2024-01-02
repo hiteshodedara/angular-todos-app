@@ -42,13 +42,9 @@ export class TopMenubarComponent implements OnInit {
             },
             {
                 label: 'Starred',
-                icon: 'pi pi-fw pi-user',
-                items: [
-                    {
-                        label: 'New',
-                        icon: 'pi pi-fw pi-user-plus'
-                    }
-                ]
+                icon: 'pi pi-star',
+               
+                
             }
         ];
 

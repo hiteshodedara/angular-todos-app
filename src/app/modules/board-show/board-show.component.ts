@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/Store/app.state';
-import { LoadTodolists } from 'src/app/Store/todolist/todolist.actions';
+import { LoadTodolists, addTodolist } from 'src/app/Store/todolist/todolist.actions';
 import { Todoslist } from 'src/app/models/todoslist';
 import { BoardsService } from 'src/app/services/boards.service';
 import { TodolistuiService } from 'src/app/services/todolistui.service';
 import { MenuItem } from 'primeng/api';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-board-show',
@@ -16,6 +17,11 @@ export class BoardShowComponent {
   isfavorite:boolean=true;
   todolists$!: Todoslist[]
   b_setting_menu_item:MenuItem[] | undefined;
+  addtodolistvisible: boolean = false;
+  show_workspace:boolean=false;
+  todolistform = new FormGroup({
+    todolistname: new FormControl(''),
+  });
 
   constructor(private listuiservice: TodolistuiService, private boardService: BoardsService,
     private store: Store<AppState>) {
@@ -111,4 +117,39 @@ export class BoardShowComponent {
     }
     ]
   }
+
+  // this used for open a dialog box for add todoslist
+  showDialog() {
+    this.addtodolistvisible = true
+  }
+
+ 
+  ontodolistsubmit() {
+    let val = this.todolistform.value.todolistname
+
+
+    if (val) {
+      let forkey = (val + (Math.round(Math.random() * 1000)))
+      let obj: Todoslist = {
+        key: forkey,
+        name: val,
+        isarchive: false,
+        index: this.todolists$.length + 1
+      }
+      this.addtodolistvisible = !this.addtodolistvisible;
+
+      //add in todoslist data
+      console.log(obj);
+
+      this.store.dispatch(addTodolist({ newtodolist: obj }))
+
+
+      this.todolistform.reset()
+    }
+  }
+
+  on_workspace_dialog_show(){
+    this.show_workspace=!this.show_workspace;
+  }
+
 }

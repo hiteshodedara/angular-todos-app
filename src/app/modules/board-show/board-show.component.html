@@ -1,5 +1,5 @@
 <div class="mainclassofboards"
-    style="height:94.6vh;background-image: url('../../../assets/images/1.png');background-size: cover;background-position: center; width: 100%;" >
+    style="height:94.6vh;background-image: url('../../../assets/images/1.png');background-size: cover;background-position: center; width: 100%;">
     <div class="boardmenuwrapper">
         <p-menubar class="">
             <ng-template pTemplate="start" class="">
@@ -7,12 +7,12 @@
                     <label>Todos Project</label>
                 </div>
 
-                <button class="Favorite bg-transparent ">
-                    <i [class]="isfavorite?'pi pi-star':'pi pi-star-fill'" (click)="onclickfavorite()"></i>
+                <button class="Favorite  " (click)="onclickfavorite()">
+                    <i [class]="isfavorite?'pi pi-star':'pi pi-star-fill'" ></i>
                 </button>
 
                 <div class="WorkSpace">
-                    <label class="m-1 "><i class="pi pi-fw pi-user"></i> Workspace</label>
+                    <button class="m-1 p-1 " (click)="on_workspace_dialog_show()"><i class="pi pi-fw pi-user"></i> Workspace</button>
                 </div>
 
             </ng-template>
@@ -32,9 +32,46 @@
             </ng-template>
         </p-menubar>
     </div>
-        <div class="show_board_lists   d-flex overflow-x-scroll  ">
-            <div class="list_info my-3 mx-2  " *ngFor="let item of todolists$">
-                <app-todolists [curruntlist]="item "></app-todolists>
-            </div>
+    <div class="show_board_lists   d-flex overflow-auto   ">
+
+        <div class="list_info my-3 mx-2  " *ngFor="let item of todolists$">
+            <app-todolists [curruntlist]="item "></app-todolists>
+        </div>
+
+
+        <div class=" my-3 mx-2">
+            <button class="btn btn-outline-secondary d-flex flex-row justify-content-center  addlistbutton"
+                (click)="showDialog()">
+                <i class="pi pi-plus addlisttag"></i>
+               Add New List
+            </button>
+
+            <!-- add todolist dialog box -->
+            <p-dialog header="Add New List" [modal]="true" [dismissableMask]="true" [(visible)]="addtodolistvisible" [draggable]="false" 
+            [style]="{ width: '30vw' }" >
+                
+                <div>
+                    <form [formGroup]="todolistform" (ngSubmit)="ontodolistsubmit()">
+                        <div class="mb-3">
+                            <label for="exampleInputtitle" class="form-label">Add List Name</label>
+                            <input type="email" autocomplete="off" class="form-control" id="exampleInputtitle"
+                                formControlName="todolistname" aria-describedby="emailHelp">
+                        </div>
+                        <div class="button d-flex justify-content-end">
+                            <button type="submit" class="btn">Submit</button>
+                        </div>
+                    </form>
+                </div>
+
+            </p-dialog>
+
+            <!-- workspace dialogbox code -->
+            <p-dialog header="All WorkSpace" [(visible)]="show_workspace" [draggable]="false" 
+            [style]="{width: '20vw'}" [modal]="true" [dismissableMask]="true">
+                <h3>
+                    feature comming soon
+                </h3>
+            </p-dialog>
+        </div>
     </div>
 </div>

@@ -23,7 +23,7 @@ export class SideMenubarComponent {
   todolists!: Todoslist[];
   is_sidebar_show: boolean = true;
   on_add_board: boolean = false;
-  currunt_boards:any=[];
+  currunt_boards:any;
   currunt_boards_names!:string[];
 
 
@@ -144,26 +144,13 @@ export class SideMenubarComponent {
     }
 
     on_convert_board_name_to_object(){
-      let obj:MenuItem={
-        label:"",
+      this.currunt_boards = this.currunt_boards_names.map((board:any) => ({
+        label: board.title,
         icon: 'pi pi-refresh',
-        routerLink: ""
-      };
-
-      let data=[]
-      for (let i = 0; i < this.currunt_boards_names.length; i++) {
+        routerLink: `board/${board.title}`
+      }));
+      console.log(this.currunt_boards);
       
-
-        
-        let data:any=this.currunt_boards_names[i]
-        obj={
-          label:data.title,
-          icon: 'pi pi-refresh',
-          routerLink:''
-        }
-         this.currunt_boards.push(obj)
-
-      }
       this.on_sidebar_archive_list()
     }
 }

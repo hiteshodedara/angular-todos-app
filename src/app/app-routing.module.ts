@@ -35,7 +35,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'boardshome', pathMatch: 'full' },
       { path: 'boardshome', component: BoardshomeComponent },
       { path: 'boardsmembers', component: BoardsmembersComponent },
-      { path: 'board_show', component: BoardShowComponent },
+      {  path: 'board/:id', component: BoardShowComponent },
       { path: 'Todos', component: TodosComponent }
     ]
   }, {
