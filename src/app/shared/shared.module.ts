@@ -10,6 +10,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { DialogModule } from 'primeng/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     TopMenubarComponent,
@@ -24,7 +25,8 @@ import { DialogModule } from 'primeng/dialog';
     TieredMenuModule,
     MenuModule,
     InputTextModule,
-    DialogModule
+    DialogModule,
+    ReactiveFormsModule
   ],
   exports: [
     TopMenubarComponent,

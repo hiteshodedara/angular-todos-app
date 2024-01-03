@@ -24,8 +24,19 @@
   <!-- Add Board Button Dialog box -->
   <p-dialog header="Add Board In Workspace" [modal]="true" [dismissableMask]="true" [(visible)]="on_add_board"
     [style]="{width: '30vw'}">
-    <h1>Feature coming soon</h1>
-  </p-dialog>
+    
+    <form [formGroup]="newboardform" (ngSubmit)="onboard_submit()">
+      <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Add List Name</label>
+          <input type="email" autocomplete="off" class="form-control" id="exampleInputEmail1"
+              formControlName="newboardname" aria-describedby="emailHelp">
+      </div>
+      <div class="sbutton d-flex justify-content-end">
+          <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+  </form>
+
+  </p-dialog> 
 
   <!-- Sidebar close button -->
   <div class="sidebarclosebtn sticky-bottom top-100">
